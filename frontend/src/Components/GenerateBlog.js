@@ -20,7 +20,7 @@ const GenerateBlog = () => {
     e.preventDefault();
 
     setLoading(true);
-    const response = await axios.post("http://localhost:5000/", {
+    const response = await axios.post("https://genblog.vercel.app/", {
       prompt: "create a long blog on" + prompt,
     });
 

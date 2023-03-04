@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const PORT = process.env.PORT || 80;
 const { Configuration, OpenAIApi } = require("openai");
 dotenv.config();
 
@@ -13,6 +14,12 @@ const openai = new OpenAIApi(configuration);
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.status(200).send({
+    message: "Hello World",
+  });
+});
 
 app.post("/", async (req, res) => {
   try {
@@ -37,4 +44,4 @@ app.post("/", async (req, res) => {
   }
 });
 
-app.listen(5000, () => console.log("listening on port 5000"));
+app.listen(PORT, () => console.log(`listening on port ${PORT}`));
