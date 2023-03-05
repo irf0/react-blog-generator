@@ -1,7 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 5000;
 const { Configuration, OpenAIApi } = require("openai");
 dotenv.config();
 

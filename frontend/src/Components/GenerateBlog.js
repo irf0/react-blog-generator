@@ -20,8 +20,11 @@ const GenerateBlog = () => {
     e.preventDefault();
 
     setLoading(true);
-    const response = await axios.post("https://genblog.vercel.app/", {
-      prompt: "create a long blog on" + prompt,
+    const response = await axios.post("http://localhost:5000/", {
+      prompt:
+        "create a long blog on" +
+        prompt +
+        "present in a organized manner also use bullte points if needed",
     });
 
     if (response.status === 200) {
@@ -68,7 +71,13 @@ const GenerateBlog = () => {
         )}
       </div>
 
-      <div className="h-screen w-4/5 p-2 float-right mr-3 sm:float-left mx-9 border border-blue-500 mt-4 rounded-md">
+      <div
+        className={`${
+          generatedBlog
+            ? "h-fit w-4/5 p-2 float-right mr-3 sm:float-left mx-9 border-2 border-blue-500 mt-4 rounded-md"
+            : "h-87vh w-4/5 p-2 float-right mr-3 sm:float-left mx-9 border-2 border-blue-500 mt-4 rounded-md"
+        }`}
+      >
         {!loading ? (
           <div>
             <p id="content" className="text-left">
