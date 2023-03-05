@@ -21,7 +21,7 @@ const GenerateBlog = () => {
 
     setLoading(true);
     const response = await axios.post(
-      "https://react-blog-generator.vercel.app/",
+      "https://genblog-22np5r61l-im4941668-gmailcom.vercel.app",
       {
         prompt:
           "create a long blog on" +
