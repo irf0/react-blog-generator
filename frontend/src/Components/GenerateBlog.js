@@ -20,19 +20,15 @@ const GenerateBlog = () => {
     e.preventDefault();
 
     setLoading(true);
-    const response = await axios.post(
-      "https://react-blog-generator-jq248thh2-im4941668-gmailcom.vercel.app/",
-      {
-        prompt:
-          "create a long blog on" +
-          prompt +
-          "present in a organized manner also use bullte points if needed",
-      }
-    );
+    const response = await axios.post("https://blog-generate.onrender.com", {
+      prompt:
+        "create a long blog on" +
+        prompt +
+        "present in a organized manner also use bullte points if needed",
+    });
 
     if (response.status === 200) {
       const parsedData = response.data.bot;
-      const title = parsedData.split("\n")[0];
       const paragraphs = parsedData.split(/\r?\n/);
       const paragraphElements = paragraphs.map((paragraph, index) => (
         <p key={index}>{paragraph}</p>
