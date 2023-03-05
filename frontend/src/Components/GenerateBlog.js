@@ -20,7 +20,7 @@ const GenerateBlog = () => {
     e.preventDefault();
 
     setLoading(true);
-    const response = await axios.post("https://blog-generate.onrender.com/", {
+    const response = await fetch("https://blog-generate.onrender.com/", {
       prompt:
         "create a long blog on" +
         prompt +
