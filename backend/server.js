@@ -33,10 +33,7 @@ app.post("/", async (req, res) => {
       frequency_penalty: 0.5,
       presence_penalty: 0,
     });
-    res.setHeader(
-      "Access-Control-Allow-Origin",
-      "https://react-blog-generator-jq248thh2-im4941668-gmailcom.vercel.app/"
-    );
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.status(200).send({
       bot: response.data.choices[0].text,
     });
