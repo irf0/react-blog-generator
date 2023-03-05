@@ -20,15 +20,12 @@ const GenerateBlog = () => {
     e.preventDefault();
 
     setLoading(true);
-    const response = await axios.post(
-      "https://genblog-22np5r61l-im4941668-gmailcom.vercel.app",
-      {
-        prompt:
-          "create a long blog on" +
-          prompt +
-          "present in a organized manner also use bullte points if needed",
-      }
-    );
+    const response = await axios.post("https://blog-generate.onrender.com", {
+      prompt:
+        "create a long blog on" +
+        prompt +
+        "present in a organized manner also use bullte points if needed",
+    });
 
     if (response.status === 200) {
       const parsedData = response.data.bot;
@@ -76,8 +73,8 @@ const GenerateBlog = () => {
       <div
         className={`${
           generatedBlog
-            ? "h-fit w-4/5 p-2 float-right mr-3 sm:float-left mx-9 border-2 border-blue-500 mt-4 rounded-md"
-            : "h-87vh w-4/5 p-2 float-right mr-3 sm:float-left mx-9 border-2 border-blue-500 mt-4 rounded-md"
+            ? "h-fit w-4/6 p-2 float-right mr-3 sm:float-left mx-9 border-2  mt-4 rounded-md"
+            : "h-87vh w-4/6 p-2 float-right mr-3 sm:float-left mx-9 border-2  mt-4 rounded-md"
         }`}
       >
         {!loading ? (
