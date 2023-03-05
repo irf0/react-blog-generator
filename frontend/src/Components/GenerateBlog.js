@@ -21,10 +21,16 @@ const GenerateBlog = () => {
 
     setLoading(true);
     const response = await fetch("https://blog-generate.onrender.com/", {
-      prompt:
-        "create a long blog on" +
-        prompt +
-        "present in a organized manner also use bullte points if needed",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        prompt:
+          "create a long blog on" +
+          prompt +
+          "present in a organized manner also use bullte points if needed",
+      }),
     });
 
     if (response.status === 200) {
